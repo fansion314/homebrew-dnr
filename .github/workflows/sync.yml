@@ -1,0 +1,39 @@
+name: Sync and test DNR releases
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17,47 * * * *'
+  push:
+    paths: ['scripts/**', 'templates/**', '.github/workflows/sync.yml']
+permissions:
+  contents: read
+concurrency:
+  group: tap-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: macos-15
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HOMEBREW_NO_AUTO_UPDATE: '1'
+      HOMEBREW_NO_INSTALL_CLEANUP: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Verify assets and generate definitions
+        run: python3 scripts/sync.py
+      - name: Install and verify candidates through Homebrew
+        run: bash scripts/test-install.sh
+      - name: Commit tested definitions
+        run: |
+          if [[ -z $(git status --porcelain -- Formula Casks releases) ]]; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'chore: update verified DNR application releases' -- Formula Casks releases
+          # Credentials exist only for this push; no cross-repository token is needed.
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:main
