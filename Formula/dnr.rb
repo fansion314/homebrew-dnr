@@ -1,9 +1,9 @@
 class Dnr < Formula
   desc "Shared Deno runtime and application packager"
   homepage "https://github.com/fansion314/dnr"
-  url "https://github.com/fansion314/dnr/releases/download/v0.5.0/dnr-0.5.0-macos-arm64.tar.gz"
-  version "0.5.0"
-  sha256 "6a1e44260f17c2642c61aaceeb525383981ac7d7374fe67ae5c09ce7f1a58e50"
+  url "https://github.com/fansion314/dnr/releases/download/v0.5.1/dnr-0.5.1-macos-arm64.tar.gz"
+  version "0.5.1"
+  sha256 "1086ffa14a7d8a8d2817d1a5a2f5eb6646ce2aaea939e3f618a3704906f50e1f"
   license "MIT"
 
   depends_on arch: :arm64
