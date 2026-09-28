@@ -1,18 +1,18 @@
 {
   "repository": "fansion314/dnr",
-  "tag": "v0.4.2",
-  "version": "0.4.2",
+  "tag": "v0.4.3",
+  "version": "0.4.3",
   "release": 0,
-  "revision": 1,
-  "asset": "dnr-0.4.2-macos-arm64-r1.tar.gz",
-  "url": "https://github.com/fansion314/dnr/releases/download/v0.4.2/dnr-0.4.2-macos-arm64-r1.tar.gz",
-  "github_digest": "sha256:bc260742d2accfc7335ee9c0681c881d3d015d2d77a0c5cb52efd84c5e88dd38",
-  "sha256": "bc260742d2accfc7335ee9c0681c881d3d015d2d77a0c5cb52efd84c5e88dd38",
+  "revision": 0,
+  "asset": "dnr-0.4.3-macos-arm64.tar.gz",
+  "url": "https://github.com/fansion314/dnr/releases/download/v0.4.3/dnr-0.4.3-macos-arm64.tar.gz",
+  "github_digest": "sha256:60104fa483ea746e22b48fd66d5168396f18f3e94fa64ac3ab6b4857b6d6594b",
+  "sha256": "60104fa483ea746e22b48fd66d5168396f18f3e94fa64ac3ab6b4857b6d6594b",
   "key": [
     0,
     4,
-    2,
+    3,
     0,
-    1
+    0
   ]
 }
