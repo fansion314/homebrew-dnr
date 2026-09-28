@@ -1,18 +1,18 @@
 {
   "repository": "fansion314/etcher",
-  "tag": "v2.1.7-dnr.5",
+  "tag": "v2.1.7-dnr.7",
   "version": "2.1.7",
-  "release": 5,
+  "release": 7,
   "revision": 1,
-  "asset": "etcher-dnr-2.1.7-5-macos-arm64-r1.tar.gz",
-  "url": "https://github.com/fansion314/etcher/releases/download/v2.1.7-dnr.5/etcher-dnr-2.1.7-5-macos-arm64-r1.tar.gz",
-  "github_digest": "sha256:3edb2d036ab2c82a392b5a98b8ff54f6cc4c52a2f924a7a45b7594ae7351455f",
-  "sha256": "3edb2d036ab2c82a392b5a98b8ff54f6cc4c52a2f924a7a45b7594ae7351455f",
+  "asset": "etcher-dnr-2.1.7-7-macos-arm64-r1.tar.gz",
+  "url": "https://github.com/fansion314/etcher/releases/download/v2.1.7-dnr.7/etcher-dnr-2.1.7-7-macos-arm64-r1.tar.gz",
+  "github_digest": "sha256:60380dafb5ea6330deb7d55ebcc11ccffb1f33281efe687f469822a1386edb14",
+  "sha256": "60380dafb5ea6330deb7d55ebcc11ccffb1f33281efe687f469822a1386edb14",
   "key": [
     2,
     1,
     7,
-    5,
+    7,
     1
   ]
 }
