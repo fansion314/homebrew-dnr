@@ -1,10 +1,10 @@
 class PiDnr < Formula
   desc "Pi coding agent for the shared dnr runtime"
   homepage "https://github.com/fansion314/pi"
-  url "https://github.com/fansion314/pi/releases/download/pi-dnr-v0.99.2-1/pi-dnr-0.99.2-1-macos-arm64-r1.tar.gz"
-  version "0.99.2-1"
+  url "https://github.com/fansion314/pi/releases/download/pi-dnr-v1.0.0-1/pi-dnr-1.0.0-1-macos-arm64-r1.tar.gz"
+  version "1.0.0-1"
   revision 1
-  sha256 "2ec12f3a20cf3a5685a2828b6c4f402597e7821d0c6eb32b05ee7583175854a8"
+  sha256 "bf1366049d25010e0e2f5101ddf6ea56208d971e66a8d9a00b9d7ae64f16bf77"
   license "MIT"
 
   depends_on arch: :arm64
@@ -25,7 +25,7 @@ class PiDnr < Formula
     ENV["PI_OFFLINE"] = "1"
     ENV["PI_TELEMETRY"] = "0"
     ENV["PI_CODING_AGENT_DIR"] = (testpath/"config").to_s
-    assert_equal "0.99.2", shell_output("#{bin}/pi --version").strip
+    assert_equal "1.0.0", shell_output("#{bin}/pi --version").strip
     assert_match "Usage:", shell_output("#{bin}/pi --help")
   end
 end
