@@ -55,6 +55,15 @@ this repository's `GITHUB_TOKEN`; no cross-repository PAT is required. The numer
 version/revision guard prevents downgrades and same-version archive replacement.
 Actual GUI interaction is validated separately; CLI CI does not prove GUI behavior.
 
+Manual runs accept a `project` choice to sync and install-test one application,
+so a missing release for another application does not block that update:
+
+```sh
+gh workflow run sync.yml -R fansion314/homebrew-dnr --ref main -f project=dnr
+```
+
+Scheduled and push runs continue to check all applications.
+
 Maintainers can run `python3 scripts/sync.py dnr pi-dnr etcher-dnr` and
 `python3 -m unittest discover -s scripts -p 'test_*.py' -v` locally. `scripts/test-install.sh`
 is for disposable macOS runners because it installs the applications.

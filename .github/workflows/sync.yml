@@ -1,6 +1,12 @@
 name: Sync and test DNR releases
 on:
   workflow_dispatch:
+    inputs:
+      project:
+        description: 'Application to sync and install-test'
+        type: choice
+        default: all
+        options: [all, dnr, pi-dnr, etcher-dnr]
   schedule:
     - cron: '17,47 * * * *'
   push:
@@ -20,15 +26,26 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       HOMEBREW_NO_AUTO_UPDATE: '1'
       HOMEBREW_NO_INSTALL_CLEANUP: '1'
+      SYNC_PROJECT: ${{ inputs.project || 'all' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
       - name: Verify assets and generate definitions
-        run: python3 scripts/sync.py
+        run: |
+          if [[ $SYNC_PROJECT == all ]]; then
+            python3 scripts/sync.py
+          else
+            python3 scripts/sync.py "$SYNC_PROJECT"
+          fi
       - name: Install and verify candidates through Homebrew
-        run: bash scripts/test-install.sh
+        run: |
+          if [[ $SYNC_PROJECT == all ]]; then
+            bash scripts/test-install.sh
+          else
+            bash scripts/test-install.sh "$SYNC_PROJECT"
+          fi
       - name: Commit tested definitions
         run: |
           if [[ -z $(git status --porcelain -- Formula Casks releases) ]]; then exit 0; fi
