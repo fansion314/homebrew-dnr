@@ -1,8 +1,8 @@
 cask "etcher-dnr" do
-  version "2.1.7-dnr.7,1"
-  sha256 "60380dafb5ea6330deb7d55ebcc11ccffb1f33281efe687f469822a1386edb14"
+  version "2.1.8-dnr.1,1"
+  sha256 "39ad66b4d629406e7c00be2a16b189aa4ec020cecec4a165a648bf78fcdc7dfa"
 
-  url "https://github.com/fansion314/etcher/releases/download/v2.1.7-dnr.7/etcher-dnr-2.1.7-7-macos-arm64-r1.tar.gz"
+  url "https://github.com/fansion314/etcher/releases/download/v2.1.8-dnr.1/etcher-dnr-2.1.8-1-macos-arm64-r1.tar.gz"
   name "balenaEtcher (dnr)"
   desc "Flash OS images using the shared dnr runtime"
   homepage "https://github.com/fansion314/etcher"
